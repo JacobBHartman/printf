@@ -3,9 +3,9 @@ testingi
 
 testing again
 
-#1) On github, create an "alpha" branch that is a copy of master
+1. On github, create an "alpha" branch that is a copy of master
 
-#2) $~: git pull origin alpha
+2. $~: git pull origin alpha
 
 3. $~: git checkout -b feauture
 
