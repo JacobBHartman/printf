@@ -1,12 +1,21 @@
 # printf
 
+## To-do
+
+Goals for 2017-10-22:
+* Finish tasks 0-2 (pass the checker if it is up)
+
+Jacob:
+
+Shannon:
+
 ## Steven's test files
 
 (https://github.com/stvngrcia/batch--4-printf-test-file)
 
 ## Github Collaboration Order of Commands
 
-### Written by Kiren, revised by Jacob
+#### Written by Kiren, revised by Jacob
 
 1. On github, create an "alpha" branch that is a copy of master
 
