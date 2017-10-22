@@ -1,7 +1,8 @@
 # printf
-testingi
 
-testing again
+## Github Collaboration Order of Commands
+
+### Written by Kiren, revised by Jacob
 
 1. On github, create an "alpha" branch that is a copy of master
 
