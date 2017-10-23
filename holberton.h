@@ -18,5 +18,6 @@ typedef struct relations {
 int _printf(const char *format, ...);
 int (*func_pick(char s))(va_list);
 int print_char(va_list vl);
+int print_str(va_list vl);
 
 #endif /* _HOLBERTON_H_ */
