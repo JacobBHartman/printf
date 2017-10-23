@@ -37,6 +37,27 @@ int print_str(va_list vl)
 }
 
 /**
+ * null_case - deals with instances where function pointer points to null
+ * @ch: the char being passed
+ *
+ * Return: a count
+ */
+int null_case(char ch)
+{
+	if (ch == '%')
+	{
+		write(1, &ch, 1);
+		return (1);
+	}
+	else if (ch == ' ')
+	{
+		write(1, &ch, 1);
+		return (1);
+	}
+	return (0);
+}
+
+/**
  * _printf - a proto-printf function
  * @format: the format specifier string
  *
@@ -58,23 +79,12 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			i++;
 			f = func_pick(format[i]);
 			if (f == NULL)
-			{
-				if (format[i] == '%')
-				{
-					write(1, &format[i], 1);
-					count++;
-				}
-				else if (format[i] == ' ')
-				{
-					write(1, &format[i], 1);
-					count++;
-				}
-			}
+				count += null_case(format[i]);
 			else
 				count += f(vl);
 		}

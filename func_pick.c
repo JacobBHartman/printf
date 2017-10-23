@@ -8,19 +8,19 @@
  */
 int (*func_pick(char s))(va_list)
 {
-        rela_t relate[] = {
-                {'c', print_char},
+	rela_t relate[] = {
+		{'c', print_char},
 		{'s', print_str},
-                {'\0', NULL}
-        };
-        int i;
+		{'\0', NULL}
+	};
+	int i;
 
-        i = 0;
-        while (relate[i].ch != '\0')
-        {
-                if (relate[i].ch == s)
-                        return (relate[i].f);
-                i++;
-        }
-        return (relate[i].f);
+	i = 0;
+	while (relate[i].ch != '\0')
+	{
+		if (relate[i].ch == s)
+			return (relate[i].f);
+		i++;
+	}
+	return (relate[i].f);
 }
