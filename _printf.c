@@ -1,4 +1,3 @@
-
 #include "holberton.h"
 
 /**
@@ -50,7 +49,6 @@ int _printf(const char *format, ...)
 	int count;
 	int i;
 	int (*f)(va_list);
-	char *error = "(nil)";
 
 	/* initialize variadic list */
 	va_start(vl, format);
@@ -65,7 +63,18 @@ int _printf(const char *format, ...)
 			i++;
 			f = func_pick(format[i]);
 			if (f == NULL)
-				write(1, &error, 5);
+			{
+				if (format[i] == '%')
+				{
+					write(1, &format[i], 1);
+					count++;
+				}
+				else if (format[i] == ' ')
+				{
+					write(1, &format[i], 1);
+					count++;
+				}
+			}
 			else
 				count += f(vl);
 		}
