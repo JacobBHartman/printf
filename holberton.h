@@ -10,13 +10,13 @@
 
 /* structure declarations and typedef here */
 typedef struct relations {
-	char *ch;
+	char ch;
 	int (*f)(va_list);
 } rela_t;
 
 /* function prototypes here */
 int _printf(const char *format, ...);
-int (*func_pick(char *s))(va_list);
+int (*func_pick(char s))(va_list);
 int print_char(va_list vl);
 
 #endif /* _HOLBERTON_H_ */
