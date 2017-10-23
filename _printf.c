@@ -16,30 +16,6 @@ int print_char(va_list vl)
 }
 
 /**
- * func_pick - chooses the appropriate function to print out various data types
- * @s: the character that determines which print function to use
- *
- * Return: a pointer to a function that takes a va_list and returns an int
- */
-int (*func_pick(char *s))(va_list)
-{
-        rela_t relate[] = {
-                {"c", print_char},
-                {NULL, NULL}
-        };
-        int i;
-
-        i = 0;
-        while (relate[i].ch != NULL)
-        {
-                if ((relate[i].ch)[0] == *(s + 0))
-                        return (relate[i].f);
-                i++;
-        }
-        return (relate[i].f);
-}
-
-/**
  * _printf - a proto-printf function
  * @format: the format specifier string
  *
@@ -52,7 +28,6 @@ int _printf(const char *format, ...)
 	int count;
 	int i;
 	int (*f)(va_list);
-	char *ptr;
 
 	/* initialize variadic list */
 	va_start(vl, format);
@@ -60,13 +35,12 @@ int _printf(const char *format, ...)
 	/*  */
 	count = 0;
 	i = 0;
-	while (*(format + i) != '\0')
+	while (format[i] != '\0')
 	{
-		if (*(format + i) == '%')
+		if (format[i] == '%')
 		{
 			i++;
-			ptr = &format[i];
-			f = func_pick(ptr);
+			f = func_pick(format[i + 1]);
 			if (f == NULL)
 			{
 				/* do something */;
@@ -75,7 +49,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*(format + i));
+			putchar(format[i]);
 			count++;
 		}
 		i++;

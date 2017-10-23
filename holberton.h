@@ -11,7 +11,7 @@
 /* structure declarations and typedef here */
 typedef struct relations {
 	char *ch;
-	void (*f)(va_list);
+	int (*f)(va_list);
 } rela_t;
 
 /* function prototypes here */
