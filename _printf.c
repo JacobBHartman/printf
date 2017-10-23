@@ -1,3 +1,4 @@
+
 #include "holberton.h"
 
 /**
@@ -13,6 +14,27 @@ int print_char(va_list vl)
 	c = va_arg(vl, int);
 	write(1, &c, 1);
 	return (1);
+}
+
+/**
+ * print_str - prints a string
+ * @vl: an argument from a variadic argument list
+ *
+ * Return: the count of characters
+ */
+int print_str(va_list vl)
+{
+	int count;
+	char *s = va_arg(vl, char *);
+	int i;
+
+	count = 0;
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		write(1, &s[i], 1);
+		count++;
+	}
+	return (count);
 }
 
 /**
@@ -54,8 +76,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	/* account for null byte at end of string */
-	count--;
 
 	/* cleanup */
 	va_end(vl);
