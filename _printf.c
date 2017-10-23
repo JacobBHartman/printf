@@ -28,11 +28,12 @@ int _printf(const char *format, ...)
 	int count;
 	int i;
 	int (*f)(va_list);
+	char *error = "(nil)";
 
 	/* initialize variadic list */
 	va_start(vl, format);
 
-	/*  */
+	/* loop through the format string */
 	count = 0;
 	i = 0;
 	while (format[i] != '\0')
@@ -40,20 +41,21 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			f = func_pick(format[i + 1]);
+			f = func_pick(format[i]);
 			if (f == NULL)
-			{
-				/* do something */;
-			}
-			count += f(vl);
+				write(1, &error, 5);
+			else
+				count += f(vl);
 		}
 		else
 		{
-			putchar(format[i]);
+			write(1, &format[i], 1);
 			count++;
 		}
 		i++;
 	}
+	/* account for null byte at end of string */
+	count--;
 
 	/* cleanup */
 	va_end(vl);
