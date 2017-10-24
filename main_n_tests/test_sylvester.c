@@ -11,21 +11,44 @@ int main(void)
 	unsigned int ui;
 	void *addr;
 
+/*
+Author's comment, I want to associate each check with a specific conditition
+ */
+
 	/********************
 	 * CHARACTERS       *
 	 *    LITERALS      *
 	 *    AND STRINGS   *
 	 ********************/
 
-	/* string literal */
+	/*  literal */
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	printf("%i %i\n", len, len2);
 
-	/* characters */
+	/* print characters */
         len = _printf("Character:[%c]\n", 'H');
         len2 = printf("Character:[%c]\n", 'H');
         printf("%i %i\n", len, len2);
+
+        len = _printf("Character:[%c]\n", -50);
+        len2 = printf("Character:[%c]\n", -2100);
+        printf("%i %i\n", len, len2);
+
+        len = _printf("Character:[%++-- .0c]\n", 'B');
+        len2 = printf("Character:[%++-- .0c]\n", 'B');
+        printf("%i %i\n", len, len2);
+
+	/* print strings */
+
+	/* literal into a single %s */
+        len = _printf("String:[%s]\n", "I am a string !");
+        len2 = printf("String:[%s]\n", "I am a string !");
+        printf("%i %i\n", len, len2);
+
+	len = _printf("%s is a %s\n", "Jack", "Dog");
+	len2 = printf("%s is a %s\n", "Jack", "Dog");
+	printf("%i %i\n", len, len2);
 
 	len = _printf("Brian said \"%s\"\n", "Yo, what's up?");
 	len2 = printf("Brian said \"%s\"\n", "Yo, what's up?");
@@ -43,21 +66,21 @@ int main(void)
 	len2 = printf("Weird specifier, %-----.5s\n", "abcdefg!"); /* if no value, print 0! */
 	printf("%i %i\n", len, len2);
 
-	/* if nothing is passed, then seg fault! */
-	len = _printf("Character:[%c]\n", -50);
-	len2 = printf("Character:[%c]\n", -2100);
-	printf("%i %i\n", len, len2);
-
-	len = _printf("Character:[%++-- .0c]\n", 'B');
-	len2 = printf("Character:[%++-- .0c]\n", 'B');
-	printf("%i %i\n", len, len2);
-
-	len = _printf("Character:[%c]\n", INT_MAX);
-	len2 = printf("Character:[%c]\n", INT_MAX);
-	printf("%i %i\n", len, len2);
-
+	/* weird specifiers */
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
+	printf("%i %i\n", len, len2);
+
+	len = _printf("Percent :[%%c]\n");
+	len2 = printf("Percent :[%%c]\n");
+	printf("%i %i\n", len, len2);
+
+	len = _printf("Percents:[%%%%]\n");
+	len2 = printf("Percents:[%%%%]\n");
+	printf("%i %i\n", len, len2);
+
+	len = _printf("hi %\n");
+	len2 = printf("hi %\n");
 	printf("%i %i\n", len, len2);
 
 	len = _printf("Unknown:[%r]\n");
@@ -83,39 +106,6 @@ int main(void)
 	printf("Address:[%p]\n", addr);
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
-	
+
 	return (0);
 }
-/* chars and strings */
-len = _printf("Let's try to printf a simple sentence.\n");
-len2 = printf("Let's try to printf a simple sentence.\n");
-printf("%i %i\n", len, len2);
-len = _printf("Character:[%c]\n", 'H');
-len2 = printf("Character:[%c]\n", 'H');
-printf("%i %i\n", len, len2);
-len = _printf("String:[%s]\n", "I am a string !");
-len2 = printf("String:[%s]\n", "I am a string !");
-printf("%i %i\n", len, len2);
-
-/* 3 or more total parameters */
-len = _printf("%s is a %s\n", "Jack", "Dog");
-len2 = printf("%s is a %s\n", "Jack", "Dog");
-printf("%i %i\n", len, len2);
-
-/* % then null byte */
-len = _printf("hi %\n");
-len2 = printf("hi %\n");
-printf("%i %i\n", len, len2);
-
-/* task 0 checks: double percent signs and spaces */
-len = _printf("Percent:[%%]\n");
-len2 = printf("Percent:[%%]\n");
-printf("%i %i\n", len, len2);
-len = _printf("Percent :[%%c]\n");
-len2 = printf("Percent :[%%c]\n");
-printf("%i %i\n", len, len2);
-len = _printf("Percents:[%%%%]\n");
-len2 = printf("Percents:[%%%%]\n");
-printf("%i %i\n", len, len2);
-
-printf("Hello %s\n", "world");
