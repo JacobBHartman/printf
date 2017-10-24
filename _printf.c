@@ -54,7 +54,7 @@ int print_str(va_list vl)
  */
 int null_case(char ch)
 {
-	char fuckit = '%';
+	char fckit = '%';
 
 	if (ch == '%')
 	{
@@ -68,7 +68,7 @@ int null_case(char ch)
 	}
 	else if (ch == '\n')
 	{
-		write(1, &fuckit, 1);
+		write(1, &fckit, 1);
 		write(1, &ch, 1);
 		return (2);
 	}
@@ -95,6 +95,8 @@ int _printf(const char *format, ...)
 	/* loop through the format string */
 	count = 0;
 	i = 0;
+	if (format == NULL)
+		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
