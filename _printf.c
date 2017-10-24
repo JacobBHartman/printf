@@ -72,14 +72,13 @@ int print_number(va_list vl)
 	{
 		nu = n * 1;
 	}
-	while (nu / magnitude >= 10)
+	while ((nu / magnitude) >= 10)
 	{
 		magnitude *= 10;
 	}
 	while (magnitude > 0)
 	{
-		putchar('0' + (nu / magnitude));
-		nu %= magnitude;
+		putchar('0' + ((nu / magnitude) % 10)));
 		magnitude /= 10;
 		i++;
 	}
