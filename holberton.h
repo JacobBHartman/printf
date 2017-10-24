@@ -26,6 +26,7 @@ int _printf(const char *format, ...);
 int (*func_pick(char s))(va_list);
 int print_char(va_list vl);
 int print_str(va_list vl);
+int print_number(va_list vl);
 int null_case(char);
 
 #endif /* _HOLBERTON_H_ */

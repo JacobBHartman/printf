@@ -47,6 +47,46 @@ int print_str(va_list vl)
 }
 
 /**
+ * print_number - prints an integer
+ * @vl: number to be printed
+ *
+ * Return: void
+ */
+int print_number(va_list vl)
+{
+	int magnitude;
+	unsigned int nu;
+	int n;
+	int i;
+
+	i = 0;
+	n = va_arg(vl, int);
+	magnitude = 1;
+	if (n < 0)
+	{
+		putchar('-');
+		nu = n * -1;
+		i++;
+	}
+	else
+	{
+		nu = n * 1;
+	}
+	while (nu / magnitude >= 10)
+	{
+		magnitude *= 10;
+	}
+	while (magnitude > 0)
+	{
+		putchar('0' + (nu / magnitude));
+		nu %= magnitude;
+		magnitude /= 10;
+		i++;
+	}
+	return (i);
+}
+
+/**
  * null_case - deals with instances where function pointer points to null
  * @ch: the char being passed
  *

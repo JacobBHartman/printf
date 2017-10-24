@@ -11,6 +11,8 @@ int (*func_pick(char s))(va_list)
 	rela_t relate[] = {
 		{'c', print_char},
 		{'s', print_str},
+		{'d', print_number},
+		{'i', print_number},
 		{'\0', NULL}
 	};
 	int i;
