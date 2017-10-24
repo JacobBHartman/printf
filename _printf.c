@@ -26,12 +26,22 @@ int print_str(va_list vl)
 	int count;
 	char *s = va_arg(vl, char *);
 	int i;
+	char *error = "(null)";
 
 	count = 0;
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
+		for (i = 0; error[i] != '\0'; i++)
+		{
+			write(1, &error[i], 1);
+			count++;
+		}
+	else
 	{
-		write(1, &s[i], 1);
-		count++;
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			write(1, &s[i], 1);
+			count++;
+		}
 	}
 	return (count);
 }
@@ -44,6 +54,8 @@ int print_str(va_list vl)
  */
 int null_case(char ch)
 {
+	char fuckit = '%';
+
 	if (ch == '%')
 	{
 		write(1, &ch, 1);
@@ -53,6 +65,12 @@ int null_case(char ch)
 	{
 		write(1, &ch, 1);
 		return (1);
+	}
+	else if (ch == '\n')
+	{
+		write(1, &fuckit, 1);
+		write(1, &ch, 1);
+		return (2);
 	}
 	return (0);
 }
@@ -88,6 +106,10 @@ int _printf(const char *format, ...)
 			else
 				count += f(vl);
 		}
+		else if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			return (-1);
+		}
 		else
 		{
 			write(1, &format[i], 1);
@@ -96,9 +118,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 
-	/* cleanup */
+	/* cleanup then return */
 	va_end(vl);
-
-	/* return */
 	return (count);
 }
