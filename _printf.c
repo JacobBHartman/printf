@@ -72,6 +72,12 @@ int null_case(char ch)
 		write(1, &ch, 1);
 		return (2);
 	}
+	else
+	{
+		write(1, &fckit, 1);
+		write(1, &ch, 1);
+		return (2);
+	}
 	return (0);
 }
 
