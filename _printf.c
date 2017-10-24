@@ -58,13 +58,15 @@ int print_number(va_list vl)
 	unsigned int nu;
 	int n;
 	int i;
+	char charput;
 
 	i = 0;
 	n = va_arg(vl, int);
 	magnitude = 1;
 	if (n < 0)
 	{
-		putchar('-');
+		charput = '-';
+		write(1, &charput, 1);
 		nu = n * -1;
 		i++;
 	}
@@ -78,7 +80,8 @@ int print_number(va_list vl)
 	}
 	while (magnitude > 0)
 	{
-		putchar('0' + ((nu / magnitude) % 10));
+		charput = '0' + ((nu / magnitude) % 10);
+		write(1, &charput, 1);
 		magnitude /= 10;
 		i++;
 	}
