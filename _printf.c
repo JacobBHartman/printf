@@ -54,7 +54,7 @@ int print_str(va_list vl)
  */
 int null_case(char ch)
 {
-	char fckit = '%';
+	char aft_pct  = '%';
 
 	if (ch == '%')
 	{
@@ -68,13 +68,13 @@ int null_case(char ch)
 	}
 	else if (ch == '\n')
 	{
-		write(1, &fckit, 1);
+		write(1, &aft_pct, 1);
 		write(1, &ch, 1);
 		return (2);
 	}
 	else
 	{
-		write(1, &fckit, 1);
+		write(1, &aft_pct, 1);
 		write(1, &ch, 1);
 		return (2);
 	}
