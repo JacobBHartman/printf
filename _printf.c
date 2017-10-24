@@ -78,7 +78,7 @@ int print_number(va_list vl)
 	}
 	while (magnitude > 0)
 	{
-		putchar('0' + ((nu / magnitude) % 10)));
+		putchar('0' + ((nu / magnitude) % 10));
 		magnitude /= 10;
 		i++;
 	}
