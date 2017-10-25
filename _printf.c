@@ -8,7 +8,7 @@
  */
 int print_char(va_list vl)
 {
-	char c;
+	char c; /* will hold the value output by va_arg */
 
 	c = va_arg(vl, int);
 	write(1, &c, 1);
@@ -29,13 +29,13 @@ int print_str(va_list vl)
 	char *error = "(null)";
 
 	count = 0;
-	if (s == NULL)
+	if (s == NULL) /* print and count "(null)" */
 		for (i = 0; error[i] != '\0'; i++)
 		{
 			write(1, &error[i], 1);
 			count++;
 		}
-	else
+	else /* print and count the string */
 	{
 		for (i = 0; s[i] != '\0'; i++)
 		{
@@ -55,30 +55,30 @@ int print_str(va_list vl)
 int print_number(va_list vl)
 {
 	int magnitude;
-	unsigned int nu;
-	int n;
+	unsigned int nu; /* will convert to unsign-int to handle MIN/MAX */
+	int n; /* the variable that will hold the va_arg */
 	int i;
-	char charput;
+	char charput; /* cant use putchar, so we write from charput */
 
 	i = 0;
 	n = va_arg(vl, int);
 	magnitude = 1;
-	if (n < 0)
+	if (n < 0) /* if the number is negative */
 	{
 		charput = '-';
 		write(1, &charput, 1);
 		nu = n * -1;
-		i++;
+		i++; /* count the negative sign */
 	}
 	else
 	{
-		nu = n * 1;
+		nu = n * 1; /* convert signed to unsigned int */
 	}
-	while ((nu / magnitude) >= 10)
+	while ((nu / magnitude) >= 10) /* find out the magnitude of the # */
 	{
 		magnitude *= 10;
 	}
-	while (magnitude > 0)
+	while (magnitude > 0) /* dissect, print each char, count */
 	{
 		charput = '0' + ((nu / magnitude) % 10);
 		write(1, &charput, 1);

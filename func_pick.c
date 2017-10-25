@@ -21,8 +21,8 @@ int (*func_pick(char s))(va_list)
 	while (relate[i].ch != '\0')
 	{
 		if (relate[i].ch == s)
-			return (relate[i].f);
+			return (relate[i].fp);
 		i++;
 	}
-	return (relate[i].f);
+	return (relate[i].fp);
 }

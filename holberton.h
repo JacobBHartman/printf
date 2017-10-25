@@ -9,16 +9,16 @@
 #include <unistd.h> /* write */
 
 /**
- * struct relations - draws a relationship between a frmt spec and a f.ptr
+ * struct relations - draws a relationship between a frmt spec and a f-ptr
  * @ch: the format specifier
- * @f: a pointer to a function that takes in a type va_list and returns an int
+ * @fp: a pointer to a function that takes in a type va_list and returns an int
  *
  * Description: ch will be the primary format specifer (not a flag!)
  */
 typedef struct relations
 {
 	char ch;
-	int (*f)(va_list);
+	int (*fp)(va_list);
 } rela_t;
 
 /* function prototypes here */

@@ -12,7 +12,7 @@ The purpose of the printf function is to be able to print variables of various d
 
 ## Files
 * .gitignore will preclude temporary files from being committed
-* _printf.c is the primary function and skeleton of the project. it also contains 4 other functions: print_string, print_char, null_case, and print_number.
+* _printf.c contains the primary function and skeleton of the project. It also contains 4 other functions: print_string, print_char, null_case, and print_number.
 * func_pick.c contains a helper function that allows us to choose the aformentioned functions listed in the bullet above.
 * holberton.h is our header file. It includes any libraries required, declares a struct type, and lists our function prototypes
 * man_3_printf is a man page for our version of printf()
