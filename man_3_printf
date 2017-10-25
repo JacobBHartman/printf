@@ -5,7 +5,7 @@
 .SH NAME
 _printf - Holberton batch 4 project coding the C standard library function printf.
 .SH SYNOPSIS
-_printf
+_printf is an attempt to replicate part of the functionality of the C Standard Library printf.
 .I FORMAT
 .I [ARGUMENT]
 .SH DESCRIPTION
@@ -16,6 +16,16 @@ FORMAT controls the output. Interpreted sequences are:
 signed integer
 .IP %i
 integer
+.IP %c
+character
+.IP %s
+string
+.IP %
+single percent
+.IP %%
+double percent
+.PP
+Future functionality will include:
 .IP %u
 unsigned integer
 .IP %o
@@ -28,10 +38,6 @@ unsigned hexadecimal upper case
 pointer to an address
 .IP %r
 string following percent
-.IP %
-percent
-.IP %%
-double percent
 .IP %%%
 triple percent
 .SH AUTHOR
@@ -49,4 +55,3 @@ This  is  free  software: you are free to change and redistribute it.  There is 
 printf(1)
 .PP
 Full documentation at: <http://www.gnu.org/software/coreutils/printf> or available locally via: info '(coreutils) printf invocation'
-
