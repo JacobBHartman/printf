@@ -8,6 +8,12 @@ _printf - Holberton batch 4 project coding the C standard library function print
 _printf
 .I FORMAT
 .I [ARGUMENT]
+.SH RETURN VALUE
+.PP Upon successful return this function will return the number of characters printed.
+.IP Example
+_printf("Character:[%c]", 'H');
+Character:[H]
+Return 13
 .SH DESCRIPTION
 Print ARGUMENT(S) according to FORMAT.
 .PP
