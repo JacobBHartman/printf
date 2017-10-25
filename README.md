@@ -17,6 +17,10 @@ The purpose of the printf function is to be able to print variables of various d
 * holberton.h is our header file. It includes any libraries required, declares a struct type, and lists our function prototypes
 * man_3_printf is a man page for our version of printf()
 
+## Functionality
+
+This is not an equivalent to the C Standard printf(). Conversion specifiers that can be handled are c, s, %, d, and i. There is no buffer handling. There are no flag characters or length modifiers. Field width and precision are ignored. In other words, simple chars, ints, and strings can be passed.
+
 ## Steven's test files
 
 (https://github.com/stvngrcia/batch--4-printf-test-file)
