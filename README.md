@@ -1,13 +1,21 @@
 # printf
 
-## To-do
+## Contributors
 
-Goals for 2017-10-22:
-* Finish tasks 0-2 (pass the checker if it is up)
+Jacob Hartman, Shannon Anderson-Cockern
+Test cases contributed by Brian Sylvester, Steven Garcia as well.
+Additional information was provided by Holberton School.
 
-Jacob:
+## Purpose
 
-Shannon:
+The purpose of the printf function is to be able to print variables of various data types, as well as to return a count of the characters printed.
+
+## Files
+* .gitignore will preclude temporary files from being committed
+* _printf.c is the primary function and skeleton of the project. it also contains 4 other functions: print_string, print_char, null_case, and print_number.
+* func_pick.c contains a helper function that allows us to choose the aformentioned functions listed in the bullet above.
+* holberton.h is our header file. It includes any libraries required, declares a struct type, and lists our function prototypes
+* man_3_printf is a man page for our version of printf()
 
 ## Steven's test files
 
@@ -46,4 +54,3 @@ REPEAT STEPS 2-10 throughout the project
 #### Other git commands
 
 :~/ur_dir$ git branch   *this will tell you which branch you're on*
-
