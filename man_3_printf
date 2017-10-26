@@ -1,7 +1,7 @@
 .\" Manpage for _printf
 .\" A user command created for Holberton School
 .\" batch 4 project code printf
-.TH _PRINTF 1 "24 October 2017" "0.10" "Holberton School printf Project"
+.TH _PRINTF 3 "24 October 2017" "0.10" "Holberton School printf Project"
 .SH NAME
 _printf - Holberton batch 4 project coding the C standard library function printf.
 .SH SYNOPSIS
@@ -9,11 +9,8 @@ _printf
 .I FORMAT
 .I [ARGUMENT]
 .SH RETURN VALUE
-.PP Upon successful return this function will return the number of characters printed.
-.IP Example
-_printf("Character:[%c]", 'H');
-Character:[H]
-Return 13
+.PP
+Upon successful completion this function will return the number of characters printed.
 .SH DESCRIPTION
 Print ARGUMENT(S) according to FORMAT.
 .PP
@@ -40,8 +37,6 @@ percent
 double percent
 .IP %%%
 triple percent
-.SH AUTHOR
-Written by Jacob Hartman and Shannon Anderson-Cockern.
 .SH REPORTING BUGS
 No known bugs.
 .PP
@@ -51,6 +46,14 @@ Report _printf translation bugs to <209@holbertonschool.com> or <266@holbertonsc
 Copyright 2017 Holberton School.
 .PP
 This  is  free  software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+.SH EXAMPLE
+_printf("Character:[%c]", 'H');
+.PP
+output:
+.PP
+Character:[H]
+.SH AUTHORS
+Written by Jacob Hartman and Shannon Anderson-Cockern.
 .SH SEE ALSO
 printf(1)
 .PP
